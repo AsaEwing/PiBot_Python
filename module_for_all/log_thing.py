@@ -1,3 +1,4 @@
+import datetime
 import time
 import subprocess
 
@@ -67,12 +68,29 @@ class DateTime(object):
         # result = subprocess.run(['ls', '-l'], stdout=subprocess.PIPE)
         # subprocess.run(['date'], stdout=subprocess.PIPE).stdout.decode('utf-8')
         # result.stdout
+        result = subprocess.run(['date'], stdout=subprocess.PIPE).stdout.decode('utf-8')
         return
 
-    @staticmethod
-    def printTime():
-        result = subprocess.run(['date'], stdout=subprocess.PIPE).stdout.decode('utf-8')
-        print("\n~ Log # Time # "+result)
+    def printTime(self):
+        print("\n~ Log # Time # "+datetime.datetime.now().strftime('%Y-%m-%d (%a) # %H:%M:%S,%f'))
+        return
+
+    def getYear(self):
+        return
+
+    def getMonth(self):
+        return
+
+    def getDay(self):
+        return
+
+    def getHour(self):
+        return
+
+    def getMinute(self):
+        return
+
+    def getSecond(self):
         return
 
 

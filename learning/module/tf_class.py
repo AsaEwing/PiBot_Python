@@ -44,8 +44,7 @@ class LayerNormal(object):
     def set_b(self, bias):
         self.b = bias
 
-    @staticmethod
-    def Wx_plus_b(inX, w, b):
+    def Wx_plus_b(self, inX, w, b):
         with tf.name_scope('WX_b'):
             return tf.matmul(inX, w) + b
 

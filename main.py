@@ -1,20 +1,28 @@
 from module_for_all import log_thing
-import os
 import sys
-import subprocess
+import os
+
 
 timer = log_thing.Timer("PiBot_Python.main")
 nowTime = log_thing.DateTime()
 
 
 def mainEnd():
+
+    """ End """
+
     timer.end()
     nowTime.printTime()
     return
 
 
 def mainStart():
+
+    """ Start """
+
+    nowTime.printTime()
     timer.now("Start")
+
     mainEnd()
     return
 
