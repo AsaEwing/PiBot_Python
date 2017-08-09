@@ -1,16 +1,16 @@
 """
 # ==================================================
-# Name: main
-# 負責 PiBot 的整體運作
+# Name: main_learning
+# 負責 神經網路 的整體運作
 # ==================================================
 """
 
 from module_for_all import log_thing
+from learning.module import tf_class
 import sys
 import os
 
-
-timer = log_thing.Timer("PiBot_Python.main")
+timer = log_thing.Timer("PiBot_Python.learning.main_learning")
 nowTime = log_thing.DateTime()
 
 

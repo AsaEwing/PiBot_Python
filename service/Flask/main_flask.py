@@ -1,7 +1,7 @@
 """
 # ==================================================
-# Name: main
-# 負責 PiBot 的整體運作
+# Name: main_flask
+# 負責 網路傳輸 的整體運作
 # ==================================================
 """
 
@@ -9,8 +9,7 @@ from module_for_all import log_thing
 import sys
 import os
 
-
-timer = log_thing.Timer("PiBot_Python.main")
+timer = log_thing.Timer("PiBot_Python.service.main_flask")
 nowTime = log_thing.DateTime()
 
 

@@ -1,3 +1,10 @@
+"""
+# ==================================================
+# Name: main_eye
+# 負責 WebCam 的整體運作
+# ==================================================
+"""
+
 from module_for_all import log_thing
 from eye.module.webcam import camera
 import numpy as np
