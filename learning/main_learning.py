@@ -1,7 +1,11 @@
+#!/usr/local/bin/python3
+# -*-coding:utf-8 -*-
 """
 # ==================================================
-# Name: main_learning
-# 負責 神經網路 的整體運作
+# Name              : main_learning
+# Action            : main for learning
+# Explanation       : 負責『神經網路』的整體運作
+# Self Class used   : Timer, tf_class
 # ==================================================
 """
 
@@ -9,37 +13,54 @@ from module_for_all import log_thing
 from learning.module import tf_class
 import sys
 import os
-
-timer = log_thing.Timer("PiBot_Python.learning.main_learning")
-nowTime = log_thing.DateTime()
+from functools import wraps
 
 
-def mainEnd():
+class main_learning(log_thing.Timer):
+    """
+* ==================================================
+* Self Class    : main_learning
+* Extends       : log_thing.Timer
+* Explanation   : 負責『神經網路』的整體運作
+* ==================================================
+    """
+    def __init__(self):
+        super().__init__(self.__class__)
+        # self.timer = None
+        # self.nowTime = log_thing.DateTime()
+        return
 
-    """ End """
+    def mainEnd(self):
+        """ End """
 
-    timer.end()
-    nowTime.printTime()
-    return
+        # self.timer.end()
+        # self.nowTime.printTime()
+        # return
+        self.timerEnd()
+        return
+
+    def mainStart(self):
+        """ Start """
+        # self.timer = log_thing.Timer("PiBot_Python.learning.main_learning")
+        # self.nowTime.printTime()
+        # self.timer.now("Start")
+
+        self.timerStart()
+        self.mainEnd()
+        # return
+        return
 
 
-def mainStart():
+if __name__ == "__main__":
+    main = main_learning()
+    log_thing.DocOut(__file__, __doc__).output()
 
-    """ Start """
-
-    nowTime.printTime()
-    timer.now("Start")
-
-    mainEnd()
-    return
-
-
-if __name__ == '__main__':
     try:
-        mainStart()
+        main.mainStart()
+
     except KeyboardInterrupt:
         print('\nInterrupted\n')
-        mainEnd()
+        main.mainEnd()
         try:
             sys.exit(0)
         except SystemExit:

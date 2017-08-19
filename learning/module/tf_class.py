@@ -1,11 +1,37 @@
-import numpy as np
-import tensorflow as tf
+#!/usr/local/bin/python3
+# -*-coding:utf-8 -*-
+"""
+# ==================================================
+# Name          : tf_class
+# Action        : self class
+# Explanation   : LayerNormal   - 全連接 layer
+#               : LayerConv     - 卷積 layer
+#               : Graph         -
+#               : TrainLayer    -
+# ==================================================
+"""
 
+import tensorflow as tf
 import sys
 
 
 class LayerNormal(object):
+    """
+* ==================================================
+* Self Class    : LayerNormal
+* Extends       : object
+* Explanation   : 全連接 layer
+* ==================================================
+    """
+
     def __init__(self, name, inputTensor, isRelu, keep_prob=None):
+        """
+
+        :param name:
+        :param inputTensor:
+        :param isRelu:
+        :param keep_prob:
+        """
         self.name = name
         self.input = inputTensor
         self.isRelu = isRelu
@@ -19,6 +45,10 @@ class LayerNormal(object):
         return
 
     def _w_init(self):
+        """
+
+        :return:
+        """
         with tf.name_scope('W'):
             if self.w_constant['stddev'] is not None:
                 self.w = tf.truncated_normal(shape=self.w_constant['shape'],
@@ -28,17 +58,37 @@ class LayerNormal(object):
             self.w = tf.Variable(self.w)
 
     def _b_init(self):
+        """
+
+        :return:
+        """
         with tf.name_scope('B'):
             self.b = tf.constant(0.1, shape=self.b_constant['shape'])
             self.b = tf.Variable(self.b)
 
     def w_var(self, shape, stddev=None):
+        """
+
+        :param shape:
+        :param stddev:
+        :return:
+        """
         self.w_constant = {'shape': shape, 'stddev': stddev}
 
     def b_var(self, shape):
+        """
+
+        :param shape:
+        :return:
+        """
         self.b_constant = {'shape': shape}
 
     def set_w(self, weights):
+        """
+
+        :param weights:
+        :return:
+        """
         self.w = weights
 
     def set_b(self, bias):

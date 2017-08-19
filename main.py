@@ -1,15 +1,18 @@
+#!/usr/local/bin/python3
+# -*-coding:utf-8 -*-
 """
 # ==================================================
-# Name: main
-# 負責 PiBot 的整體運作
-#
+# Name              : main
+# Action            : main for all
+# Explanation       : 負責『PiBot』的整體運作
+# Self Class used   : Timer
+# Note              : use 'pydoc3 -p 9999' to read doc
 # ==================================================
 """
 
 from module_for_all import log_thing
 import sys
 import os
-
 
 timer = log_thing.Timer("PiBot_Python.main")
 nowTime = log_thing.DateTime()
