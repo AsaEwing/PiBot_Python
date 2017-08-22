@@ -35,11 +35,11 @@ def mainStart():
     return
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     try:
         mainStart()
     except KeyboardInterrupt:
-        print('\nInterrupted\n')
+        print("\nInterrupted\n")
         mainEnd()
         try:
             sys.exit(0)
