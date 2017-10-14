@@ -16,6 +16,48 @@ import datetime
 import time
 import subprocess
 
+import inspect
+import re
+
+
+class Basic(object):
+    def __init__(self):
+        return
+
+    @staticmethod
+    def VarName(var):
+
+        for tmp in inspect.getframeinfo(inspect.currentframe().f_back):
+            print("# # # ", tmp)
+
+        for line in inspect.getframeinfo(inspect.currentframe().f_back)[3]:
+            m = re.search(r"\bVarName\s*\(\s*([A-Za-z_][A-Za-z0-9_]*)\s*\)", line)
+            if m:
+                return m.group(1)
+
+    @staticmethod
+    def VarName2(*args):
+        frame = inspect.currentframe()
+        frame = inspect.getouterframes(frame)[1]
+        string = inspect.getframeinfo(frame[0]).code_context[0].strip()
+        args = string[string.find('(') + 1:-1].split(',')
+
+        names = []
+        for i in args:
+            if i.find('=') != -1:
+                names.append(i.split('=')[1].strip())
+                #names = i.split('=')[1].strip()
+            else:
+                names.append(i)
+                #names = i
+
+        return names
+
+    @staticmethod
+    def foo(**kwargs):
+        for arg_name in kwargs:
+            return kwargs[arg_name], arg_name
+
 
 class DateTime(object):
     """

@@ -11,11 +11,14 @@
 """
 
 from module_for_all import log_thing
-import sys
-import os
+# import sys
+# import os
+from import_main import *
 
 __author__ = "Asa Ewing"
 __version__ = "1.0.0"
+
+print(sys.path)
 
 
 class mainPiBot(log_thing.Timer):

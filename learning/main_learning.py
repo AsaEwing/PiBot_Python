@@ -9,12 +9,19 @@
 # ==================================================
 """
 
-from module_for_all import log_thing
-from learning.module import tf_class
+
+
 import sys
 import os
 from functools import wraps
+print("###")
+print(sys.path)
+print("###")
+print(__file__)
+print("###")
 
+from module_for_all import log_thing
+from learning.module import tf_class
 
 class main_learning(log_thing.Timer):
     """
